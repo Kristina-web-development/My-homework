@@ -1,0 +1,16 @@
+.oneDiv {
+    background-color: aquamarine;
+}
+
+.twoDiv {
+    background-color: blueviolet;
+}
+
+.threeDiv {
+    background-color: greenyellow;
+}
+
+.oneDiv, .twoDiv, .threeDiv {
+    width: 100%;
+    height: 700px;
+}
