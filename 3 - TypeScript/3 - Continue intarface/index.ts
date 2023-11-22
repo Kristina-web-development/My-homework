@@ -37,16 +37,21 @@ const manageUser = {
     updateUserStudent: function(id: number, student: boolean): User {
 
         const userFind  = this.users.find(user=>{
-            return user.id == id // сравнение 
+            return user.id == id 
         })
 
-        userFind.student = student //- одно ровно это значит поменять одно значение на другое 
+        userFind.student = student  
         return userFind
     },
-    // deleteUser: function(id: number, name: string, age: number, student: boolean): Array<User> {
-    //     this.users.deleteUser({id, name,  age, student})
-    //     return this.users
-    // }
+    deleteUser: function(id: number): Array<User> {
+       //this.users.delete({id, name,  age, student})
+
+       //filter // может отфельтровать все обьекты торомые мы хотим получить или не хотим
+       this.users = this.users.filter(user => user.id !== id)
+
+        
+        return this.users
+    }
 }
 
 manageUser.showAllUsersName()
@@ -70,6 +75,16 @@ const handleUpdateName = () => {
 const handleUpdateStudent = () => {
     const id: number = +prompt("Enter your id")
     const student: boolean  = confirm("Enter new value")
-
+    
     console.log(manageUser.updateUserStudent(id, student));
 }
+
+const handleDeleteUser = () => {
+    const id: number = +prompt("Enter your id")
+    
+    console.log(manageUser.deleteUser(id))
+}
+
+//const aaa =  manageUser.users.filter(user => user.name.includes("Ka"))
+const aaa =  manageUser.users.filter(user => user.name == "Kristin2342324a")
+console.log(aaa);

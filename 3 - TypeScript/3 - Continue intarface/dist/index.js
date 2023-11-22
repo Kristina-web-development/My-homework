@@ -27,10 +27,16 @@ var manageUser = {
     },
     updateUserStudent: function (id, student) {
         var userFind = this.users.find(function (user) {
-            return user.id == id; // сравнение 
+            return user.id == id;
         });
-        userFind.student = student; //- одно ровно это значит поменять одно значение на другое 
+        userFind.student = student;
         return userFind;
+    },
+    deleteUser: function (id) {
+        //this.users.delete({id, name,  age, student})
+        //filter // может отфельтровать все обьекты торомые мы хотим получить или не хотим
+        this.users = this.users.filter(function (user) { return user.id !== id; });
+        return this.users;
     }
 };
 manageUser.showAllUsersName();
@@ -51,3 +57,10 @@ var handleUpdateStudent = function () {
     var student = confirm("Enter new value");
     console.log(manageUser.updateUserStudent(id, student));
 };
+var handleDeleteUser = function () {
+    var id = +prompt("Enter your id");
+    console.log(manageUser.deleteUser(id));
+};
+//const aaa =  manageUser.users.filter(user => user.name.includes("Ka"))
+var aaa = manageUser.users.filter(function (user) { return user.name == "Kristin2342324a"; });
+console.log(aaa);
