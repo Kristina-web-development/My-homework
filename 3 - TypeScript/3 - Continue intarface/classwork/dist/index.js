@@ -1,3 +1,4 @@
+var boby = document.querySelector(".body");
 var root = document.querySelector(".root");
 // function that render an uniuq id
 var uid = function () {
@@ -68,7 +69,7 @@ var stock = {
 var render = function (productArray) {
     var html = '';
     productArray.forEach(function (product) {
-        html += "\n      <div class=\"product\">\n        <h2>" + product.name + "</h2>\n        <p>" + product.price + "</p>\n        <p>" + product.group + "</p>\n        <p>" + product.id + "</p>\n        <img src=\"" + product.image + "\" alt=\"" + product.name + "\" />\n      </div>\n    ";
+        html += "\n      <div class=\"product\">\n        <p class=\"product__group\">" + product.group + "</p>\n        <h2 class=\"product__name\">" + product.name + "</h2>\n        <img class=\"product__image\" src=\"" + product.image + "\" alt=\"" + product.name + "\" />\n       \n        <p class=\"product__id\">" + product.id + "</p>\n        <p class=\"product__price\">" + product.price + "</p>\n      \n      </div>\n    ";
     });
     root.innerHTML = html;
 };

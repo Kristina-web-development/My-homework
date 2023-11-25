@@ -1,3 +1,4 @@
+const boby = document.querySelector(".body") as HTMLBodyElement
 const root = document.querySelector(".root") as HTMLDivElement
 
 // function that render an uniuq id
@@ -95,11 +96,13 @@ const render = (productArray: Array<Product>) =>{
   productArray.forEach(product => {
     html += `
       <div class="product">
-        <h2>${product.name}</h2>
-        <p>${product.price}</p>
-        <p>${product.group}</p>
-        <p>${product.id}</p>
-        <img src="${product.image}" alt="${product.name}" />
+        <p class="product__group">${product.group}</p>
+        <h2 class="product__name">${product.name}</h2>
+        <img class="product__image" src="${product.image}" alt="${product.name}" />
+       
+        <p class="product__id">${product.id}</p>
+        <p class="product__price">${product.price}</p>
+      
       </div>
     `
   })
