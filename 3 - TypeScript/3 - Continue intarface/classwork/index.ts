@@ -62,31 +62,42 @@ const stock = {
 
     render(this.products)
   },
-
+  
   // add product function
-
+  
   addNewProduct: function (
     group: string,
     name: string,
     image: string,
     price: number
-  ): Array<Product> {
-    this.products.push({ id: uid(), group, name, image, price });
-    return this.products;
-  },
-  // update product function
-  updateUProductName: function(id: string, name: string): Array<Product> {
+    )
+    //: Array<Product>
+    {
+      this.products.push({ id: uid(), group, name, image, price });
+      console.log(this.products);
+      
+      render(this.products)
+      //return this.products;
+    },
+    // update product function
+    updateUProductName: function(id: string, name: string)
+    //: Array<Product> 
+    {      
       const productFind  = this.products.find( product => {
-          return product.id == id // сравнение
-      })
-
+        return product.id == id // сравнение
+      })     
+      
       productFind.name = name //- одно ровно это значит поменять одно значение на другое
-      return this.products
-  },
-  // delete product function
-   deleteProduct: function(id:string): Array<Product>{
-     this.products = this.products.filter(product => product.id !== id)
-     return this.products
+      render(this.products)
+      //return this.products
+    },
+    // delete product function
+    deleteProduct: function(id:string)
+    //: Array<Product>
+    {
+      this.products = this.products.filter(product => product.id !== id)
+      render(this.products)
+     //return this.products
    }
 };
 
@@ -99,10 +110,8 @@ const render = (productArray: Array<Product>) =>{
         <p class="product__group">${product.group}</p>
         <h2 class="product__name">${product.name}</h2>
         <img class="product__image" src="${product.image}" alt="${product.name}" />
-       
         <p class="product__id">${product.id}</p>
         <p class="product__price">${product.price}</p>
-      
       </div>
     `
   })
@@ -114,22 +123,23 @@ const render = (productArray: Array<Product>) =>{
 stock.showAllProducts();
 
 const handleAddNew = () => {
-  const name: string = prompt("Enter name");
   const group: string = prompt("Enter group");
+  const name: string = prompt("Enter name");
 
   const image: string = prompt("Enter image");
   const price: number = +prompt("Enter price");
 
-  console.log(stock.addNewProduct(name, group, image, price));
+  stock.addNewProduct(name, group, image, price)
 };
 
 const handleUpdateProduct = () => {
   const name: string = prompt("Enter name");
 const id: string = prompt("Enter id");
-  console.log(stock.updateUProductName(id, name))
+
+ stock.updateUProductName(id, name)
 }
 
 const handleDeleteProduct = () => {
   const id: string = prompt("Enter id")
-  console.log(stock.deleteProduct(id))
+  stock.deleteProduct(id)
 }

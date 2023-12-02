@@ -50,7 +50,9 @@ var stock = {
     // add product function
     addNewProduct: function (group, name, image, price) {
         this.products.push({ id: uid(), group: group, name: name, image: image, price: price });
-        return this.products;
+        console.log(this.products);
+        render(this.products);
+        //return this.products;
     },
     // update product function
     updateUProductName: function (id, name) {
@@ -58,36 +60,38 @@ var stock = {
             return product.id == id; // сравнение
         });
         productFind.name = name; //- одно ровно это значит поменять одно значение на другое
-        return this.products;
+        render(this.products);
+        //return this.products
     },
     // delete product function
     deleteProduct: function (id) {
         this.products = this.products.filter(function (product) { return product.id !== id; });
-        return this.products;
+        render(this.products);
+        //return this.products
     }
 };
 var render = function (productArray) {
     var html = '';
     productArray.forEach(function (product) {
-        html += "\n      <div class=\"product\">\n        <p class=\"product__group\">" + product.group + "</p>\n        <h2 class=\"product__name\">" + product.name + "</h2>\n        <img class=\"product__image\" src=\"" + product.image + "\" alt=\"" + product.name + "\" />\n       \n        <p class=\"product__id\">" + product.id + "</p>\n        <p class=\"product__price\">" + product.price + "</p>\n      \n      </div>\n    ";
+        html += "\n      <div class=\"product\">\n        <p class=\"product__group\">" + product.group + "</p>\n        <h2 class=\"product__name\">" + product.name + "</h2>\n        <img class=\"product__image\" src=\"" + product.image + "\" alt=\"" + product.name + "\" />\n        <p class=\"product__id\">" + product.id + "</p>\n        <p class=\"product__price\">" + product.price + "</p>\n      </div>\n    ";
     });
     root.innerHTML = html;
 };
 // all the manipulations will be in object - each function in object will return updated array
 stock.showAllProducts();
 var handleAddNew = function () {
-    var name = prompt("Enter name");
     var group = prompt("Enter group");
+    var name = prompt("Enter name");
     var image = prompt("Enter image");
     var price = +prompt("Enter price");
-    console.log(stock.addNewProduct(name, group, image, price));
+    stock.addNewProduct(name, group, image, price);
 };
 var handleUpdateProduct = function () {
     var name = prompt("Enter name");
     var id = prompt("Enter id");
-    console.log(stock.updateUProductName(id, name));
+    stock.updateUProductName(id, name);
 };
 var handleDeleteProduct = function () {
     var id = prompt("Enter id");
-    console.log(stock.deleteProduct(id));
+    stock.deleteProduct(id);
 };
