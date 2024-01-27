@@ -10,13 +10,17 @@ var arrOfTask = [
 // const completedTasks = arrOfTask.filter(task => task.taskDone === true);
 // console.log(completedTasks);
 // 4. Вернуть все задачи в которых включены буквы of/eat/go и т.д. на твоё усмотрение.
-// const tasksWithEat = arrOfTask.filter(task => task.taskTitle.includes('Scr'));
+// const tasksWithEat = arrOfTask.filter(task => task.taskTitle.toLowerCase().includes('ht'.toLowerCase()));
 // console.log(tasksWithEat);
+//regex
 // 5. Вернуть новый массив в котором кажлый taskId начинается с 123-....
 // const newArrayWithPrefix = arrOfTask.map(task => ({
 //     ...task, taskId: `123-${task.taskId}`
 //   }));
 //   console.log(newArrayWithPrefix);
+// const newArr  = [...arrOfTask,   { taskTitle: "HTML + CSS", taskId: 1, taskDone: true }]
+// const aaa = arrOfTask.push(  { taskTitle: "HTML + CSS", taskId: 1, taskDone: true })
+// console.log(newArr);
 // 6. Отсортировать в алфавитном порядке все задачки.
 // const sortedTasks = arrOfTask.slice().sort((a, b) => a.taskTitle.localeCompare(b.taskTitle));
 // console.log(sortedTasks);

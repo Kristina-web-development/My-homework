@@ -9,9 +9,31 @@
 </head>
 <body class="body">
     <!-- BEM -->
-    <button onclick="handleAddNew()">Add New Product</button>
-    <button onclick="handleUpdateProduct()">Update your name</button>
-    <button onclick="handleDeleteProduct()">Delete your product</button>
+    <!-- <button onclick="handleAddNew()">Add New Product</button> -->
+    <!-- <button onclick="handleUpdateProduct()">Update your name</button> -->
+    <!-- <button onclick="handleDeleteProduct()">Delete your product</button> -->
+    <!-- <button id="btn" type="button" >Edit</button>  -->
+
+    <!-- <button>Sort from lower price to higher</button> -->
+    <div class="sort"> 
+    <button id = "sortBtnLow" type="button" name="sortBtnLow" onclick="handleSortLowToHigh()">LowtoHigh</button> 
+    <button id = "sortBtnHigh" type="button" name="sortBtnHigh"  onclick="handleSortHighToLow()">HightoLow</button> 
+    <button id = "sortBtnAlph" type="button" name="sortBtnAlph" onclick="handleSortAlphabet()">Alphabet</button>
+        <input id = "searchInput" type="text" name="searchInput" onkeyup="handleSearchProduct(event)" placeholder="Enter name of product to search">
+</div>
+    <form id="form" onsubmit="handleAddNew(event)">
+        <input type="text" name="fruitGroup" placeholder="Enter Group fruit"/>
+        <input type="text" name="fruitName" placeholder="Enter fruit name"/>
+        <input type="number" name="fruitPrice" placeholder="Enter fruit Price"/>
+        <input type="url" name="fruitImg" placeholder="Enter fruit Image"/>
+        <button type="submit">Add</button>
+    </form>
+    <select name="fruitType" id="selectFruit" onchange="hendleFilterByType(event)">
+        <!-- <option value="volvo">12312313</option>
+        <option value="saab">sgsdgsg</option>
+        <option value="opel">cnvbcvb</option>
+        <option value="audi">//*</option> -->
+      </select>
     <div class="root"></div>
    <script src="./dist/index.js"></script>
 </body>
