@@ -16,21 +16,30 @@ interface Images {
 */
 const App: FC = () => {
 
-  const [imageUrls, setImageUrls] = useState<Images[]>()
+  //const [imagesArray, setImagesArray] = useState<Images[]>()
   const btnChangeImage = "Change image"
 
   const imagesArray: Array<Images> = [
     {
+      //id: 1,
       url: "https://hobby-puzzle.ru/images/product_images/popup_images/5149_0.png",
     },
     {
+      //id: 2,
       url: "https://avatars.dzeninfra.ru/get-zen_doc/1714479/pub_5dfb4b2278125e00ae85f6f4_5dfb4f5fb477bf00afd11ac9/scale_1200",
     },
     {
+      //id: 3,
       url: "https://hobby-puzzle.ru/images/product_images/popup_images/5149_0.png",
     },
   ];
-
+  // const changeImage = (id: number) => {
+  //   setImagesArray((prevImages) =>
+  //     prevImages.map((image) =>
+  //       image.id === id ? { ...image, url: "newImageUrl" } : image
+  //     )
+  //   );
+  // };
   {/* 
   1. use useState to change an image by press button next to the image that you want to change
 */}
@@ -43,6 +52,12 @@ const App: FC = () => {
       <ImageItem key={index} url={image.url} />
     ))
   }  
+    {/* {imagesArray.map((image) => (
+        <div key={image.id}>
+          <ImageItem url={image.url} />
+          <button onClick={() => changeImage(image.id)}>Change image</button>
+        </div>
+      ))} */}
 </div>
 <div id="btn">
 <button onClick={()=>setNumber(number +1)}>{btnChangeImage}</button>
