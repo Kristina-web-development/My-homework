@@ -60,8 +60,18 @@ function App() {
     const { data } = await axios.get(
       "https://jsonplaceholder.typicode.com/posts"
     );
-    console.log(data);
     setShowPosts(data);
+    // const res = await axios.get(
+    //   "https://jsonplaceholder.typicode.com/posts"
+    // );
+
+    // console.log(res);
+    
+    // await axios.get("https://jsonplaceholder.typicode.com/posts").then((res: any)=> {
+    //    setShowPosts(res.data);
+    //  }).catch((error: any) => {
+    //    console.log(error)
+    //  })
   };
 
 
