@@ -1,20 +1,17 @@
 import { useRef, useState } from "react";
 import axios from "axios";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
   const [showJoke, setShowJoke] = useState<string>(""); // 1. Что за бред!!!!!????
   const divText = useRef(null);
   const btn = useRef(null);
-  const [loader, setLoader] = useState<boolean>(false);
-
+  const [loader, setLoader] = useState<boolean>(false); 
   console.log(divText);
 
   const getJock = async () => {
     try {
-      setLoader(true);
+      setLoader(true); 
       const { data } = await axios.get(
         "https://api.chucknorris.io/jokes/random"
       );
