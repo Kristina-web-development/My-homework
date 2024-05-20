@@ -1,0 +1,12 @@
+nav, .header__theme {
+    align-items: center;
+}
+
+nav {
+    display: flex;
+}
+
+.header__theme{
+    display: flex;
+    
+}
