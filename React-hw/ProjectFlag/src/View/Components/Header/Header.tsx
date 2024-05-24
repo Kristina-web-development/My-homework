@@ -14,6 +14,17 @@ const Header: FC<IHeader> = ({ dataFlag, setFlags }) => {
     );
     setFlags(searchedCountries);
   };
+  const handleSelectChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+      const  selectedCountry = e.target.value;
+
+    const filteredCountries = dataFlag.filter((country) =>
+    country.name.toLowerCase() === selectedCountry.toLowerCase()
+  );
+  setFlags(filteredCountries);
+
+  };
+
+  const names = Array.from(new Set(dataFlag.map((country) => country.name)));
 
   /*
    Создать функцию, которая будет принмать event (ev), важно типизировать его.
@@ -30,7 +41,14 @@ const Header: FC<IHeader> = ({ dataFlag, setFlags }) => {
         />
       </div>
       <div>
-          {/* Создать select + options */}
+      <select onChange={handleSelectChange}>
+      <option value="selectCountry">Select Region</option>
+          {names.map((name) => (
+            <option key={name} value={name}>
+              {name}
+            </option>
+          ))}
+</select>    {/* Создать select + options */}
       </div>
     </header>
   );

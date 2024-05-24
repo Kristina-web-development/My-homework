@@ -1,33 +1,39 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 import data from "../../assets/data.json";
+import FlagCard from "../Components/FlagCard/FlagCard";
 import Header from "../Components/Header/Header";
 
 const MainPage = () => {
-  const [flags, setFlags] = useState(data.slice(0, 10));
+  const [countOfFlags, setCountOfFlags] = useState(10);
+  const [flags, setFlags] = useState(data.slice(0, countOfFlags));
 
-  //console.log(data)
-
-  const infoFlag = data.slice(0, 10); //Понять как можно посенять 10 на +10 и т.д.. useState()
-  console.log(infoFlag);
-
-  /*
-    Мы хотим за раз показать только первые 10 елементов. 
-    У нас есть кнопка которая позволяет посмотреть следущие 10 (т.е. за раз мы смотрим 20 и т.д.)
-  */
+  useEffect(() => {
+    setFlags(data.slice(0, countOfFlags));
+  }, [countOfFlags]);
 
   return (
     <>
       <Header dataFlag={data} setFlags={setFlags} />
       <main>
-        {/* Создать новую компоненту для отдельной страны и флага и передать нужную информацию (через props) чтоб показать ее */}
+       {/* 
+       1. Закончить домашку с прошло урока (находиться в Header)
+       2. Сделать стили флага
+       3. Сделать грид на главной странице как в дезайне фигма
+       */}
         {flags.map((fl, index) => (
-          <div key={index}>
-            <h2>{fl.name}</h2>
-          </div>
+          <FlagCard
+            imgCountryFlag={fl.flags.svg}
+            countryName={fl.name}
+            countryPopulation={fl.population}
+            countryRegion={fl.region}
+            countryCapital={fl.capital}
+          />
         ))}
 
-        <button disabled>Show more</button>
+        <button onClick={() => setCountOfFlags(countOfFlags + 10)}>
+          Show more
+        </button>
       </main>
     </>
   );
