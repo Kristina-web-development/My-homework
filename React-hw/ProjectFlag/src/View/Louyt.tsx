@@ -1,16 +1,21 @@
-import React from 'react'
-import {Outlet} from 'react-router-dom'
-import NavBar from './Components/NavBar/NavBar'
+import React from "react";
+import { Outlet } from "react-router-dom";
+import NavBar from "./Components/NavBar/NavBar";
 
-
-const Louyt = () => {
+interface ILouyt {
+  setTheme: Function;
+  theme: string;
+}
+const Louyt: FC<ILouyt> = ({ setTheme, theme }) => {
   return (
     <div>
-        <NavBar/> {/* хедер всегда будет присуствовать на любой странице*/}
-        <Outlet/> {/* Возможность показать динамично другую страницу при переходе раута */}
+      <NavBar setTheme={setTheme} theme={theme} />{" "}
+      {/* хедер всегда будет присуствовать на любой странице*/}
+      <Outlet />{" "}
+      {/* Возможность показать динамично другую страницу при переходе раута */}
       {/* Footer - будет здесь и будет показан на каждой странице */}
     </div>
-  )
-}
+  );
+};
 
-export default Louyt
+export default Louyt;

@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Outlet } from "react-router-dom";
+import { FC, useEffect, useState } from "react";
 import data from "../../assets/data.json";
 import FlagCard from "../Components/FlagCard/FlagCard";
 import Header from "../Components/Header/Header";
+import "./main-style.css";
 
-const MainPage = () => {
-  const [countOfFlags, setCountOfFlags] = useState(10);
+interface IMainPage {
+  theme: string;
+}
+const MainPage: FC<IMainPage> = ({ theme }) => {
+  const [countOfFlags, setCountOfFlags] = useState(8);
   const [flags, setFlags] = useState(data.slice(0, countOfFlags));
 
   useEffect(() => {
@@ -14,24 +17,27 @@ const MainPage = () => {
 
   return (
     <>
-      <Header dataFlag={data} setFlags={setFlags} />
-      <main>
-       {/* 
-       1. Закончить домашку с прошло урока (находиться в Header)
-       2. Сделать стили флага
-       3. Сделать грид на главной странице как в дезайне фигма
-       */}
-        {flags.map((fl, index) => (
-          <FlagCard
-            imgCountryFlag={fl.flags.svg}
-            countryName={fl.name}
-            countryPopulation={fl.population}
-            countryRegion={fl.region}
-            countryCapital={fl.capital}
-          />
-        ))}
-
-        <button onClick={() => setCountOfFlags(countOfFlags + 10)}>
+      <Header dataFlag={data} setFlags={setFlags} theme={theme} />
+      <main
+        className={
+          theme == "dark" ? "darkthemeBackGround" : "lightthemeBackGround"
+        }
+      >
+        {/* Сделать media-query для телефона и таблет, грид должен меняться (при телефоне column по количеству уменьшается) */}
+        <section className="gallery">
+          {flags.map((fl, index) => (
+            <FlagCard
+              key={index}
+              imgCountryFlag={fl.flags.svg}
+              countryName={fl.name}
+              countryPopulation={fl.population}
+              countryRegion={fl.region}
+              countryCapital={fl.capital}
+            />
+          ))}
+        </section>
+      
+        <button className={theme == "dark" ? "lightthemeButton" : "darkthemeButton"} onClick={() => setCountOfFlags(countOfFlags + 8)}>
           Show more
         </button>
       </main>

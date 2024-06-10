@@ -1,12 +1,19 @@
-nav, .header__theme {
-    align-items: center;
+nav,
+.header__theme {
+  align-items: center;
 }
 
 nav {
-    display: flex;
+  width: 100vw;
 }
 
-.header__theme{
-    display: flex;
-    
+nav > div {
+  max-width: var(--maxwidth);
+  margin: var(--marginwidth);
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__theme {
+  display: flex;
 }

@@ -1,0 +1,55 @@
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+--maxwidth: 1280px;
+--marginwidth: 0 auto;
+
+
+--DarkBlue-DarkModeElements: hsl(209, 23%, 22%);
+--VeryDarkBlue-DarkModeBackground: hsl(207, 26%, 17%);
+--VeryDarkBlue-LightModeText: hsl(200, 15%, 8%);
+--DarkGray-LightModeInput: hsl(0, 0%, 52%);
+--VeryLightGray-LightModeBackground: hsl(0, 0%, 98%);
+--White-DarkModeText-LightModeElements: hsl(0, 0%, 100%);
+}
+
+.lightthemeBackGround{
+    background-color: var(--VeryLightGray-LightModeBackground);
+}
+
+.lightthemeNavBar {
+    background-color: var(--White-DarkModeText-LightModeElements);
+}
+
+.darkthemeBackGround {
+    background-color: var(--VeryDarkBlue-DarkModeBackground);
+}
+
+.darkthemeNavBar {
+    background-color: var(--DarkBlue-DarkModeElements);
+}
+
+.gallery {
+    max-width: var(--maxwidth);
+    margin: var(--marginwidth);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+header div{
+    max-width: var(--maxwidth);
+    margin: var(--marginwidth);
+}
+
+.darkthemeButton {
+    background-color:  var(--VeryDarkBlue-DarkModeBackground );
+    color: var(--White-DarkModeText-LightModeElements) ;
+}
+
+.lightthemeButton {
+background-color: var(--VeryLightGray-LightModeBackground);
+color: var(--VeryDarkBlue-LightModeText);
+}
