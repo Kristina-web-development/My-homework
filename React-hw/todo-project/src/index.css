@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+:root {
+  --mobileWidth: 375px;
+  --desktopWidth: 1440px;
+  --colorBrighyBlue: hsl(220, 98%, 61%);
+  --checkBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+  font-size: 18px;
+  font-family: "Josefin Sans", sans-serif;
+  --fontweightLight: 400;
+  --fontweightBold: 700;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+.main {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+ 
+}
+
+main {
+  width: 40%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.darkBackGround {
+  background-image: url("./assets/images/bg-desktop-dark.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: black;
+}
+
+h1 {
+  margin: 0;
+}
