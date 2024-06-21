@@ -53,3 +53,41 @@ header div{
 background-color: var(--VeryLightGray-LightModeBackground);
 color: var(--VeryDarkBlue-LightModeText);
 }
+
+.lightText {
+   color: var(--White-DarkModeText-LightModeElements);
+}
+
+.darkText {
+   color: var(--VeryDarkBlue-LightModeText);
+}
+
+@media screen and (max-width: 1000px) {
+    .gallery {
+     max-width: 800px;
+     margin: 0;
+     display: grid;
+     grid-template-columns: repeat(3, 1fr);
+ 
+    } 
+ }
+
+@media screen and (max-width: 800px) {
+   .gallery {
+    max-width: 800px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    
+   } 
+}
+
+@media screen and (max-width: 500px) {
+    .gallery {
+     max-width: 600px;
+     margin: 0;
+     display: grid;
+     grid-template-columns: repeat(1, 1fr);
+    } 
+ }
+ 

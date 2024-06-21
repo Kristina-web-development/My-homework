@@ -3,6 +3,7 @@ import data from "../../assets/data.json";
 import FlagCard from "../Components/FlagCard/FlagCard";
 import Header from "../Components/Header/Header";
 import "./main-style.css";
+import Flag from "../Pages/Flag";
 
 interface IMainPage {
   theme: string;
@@ -10,7 +11,7 @@ interface IMainPage {
 const MainPage: FC<IMainPage> = ({ theme }) => {
   const [countOfFlags, setCountOfFlags] = useState(8);
   const [flags, setFlags] = useState(data.slice(0, countOfFlags));
-
+  
   useEffect(() => {
     setFlags(data.slice(0, countOfFlags));
   }, [countOfFlags]);

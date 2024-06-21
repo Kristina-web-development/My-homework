@@ -11,7 +11,7 @@ const NavBar: FC<INavBar> = ({ setTheme, theme }) => {
   return (
     <nav className={theme == "dark" ? "darkthemeNavBar" : "lightthemeNavBar"}>
       <div>
-        <p className="header__question">Where in the world?</p>
+        <p className={theme == "dark" ? "lightText" : "darkText "} width={233} height={33}>Where in the world?</p>
         <div className="header__theme">
           <button
             className="header__text"

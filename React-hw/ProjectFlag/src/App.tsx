@@ -20,8 +20,8 @@ function App() {
           element: <MainPage theme={theme}/>,
         },
         {
-          path: "/flag",
-          element: <Flag />,
+          path: "country/:countryName",
+          element: <Flag theme={theme}/>,
         },
         { path: "/nahui", element: <></> },
       ],

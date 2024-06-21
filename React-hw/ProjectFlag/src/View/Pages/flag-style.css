@@ -1,0 +1,7 @@
+.lightText {
+    color: hsl(0, 0%, 100%);
+ }
+ 
+ .darkText {
+    color: hsl(200, 15%, 8%);;
+ }
