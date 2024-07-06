@@ -3,7 +3,7 @@
   --mobileWidth: 375px;
   --desktopWidth: 1440px;
   --colorBrighyBlue: hsl(220, 98%, 61%);
-  --checkBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);
+ 
   font-size: 18px;
   font-family: "Josefin Sans", sans-serif;
   --fontweightLight: 400;
@@ -22,13 +22,11 @@ body {
  
 }
 
-main {
-  width: 40%;
-}
 
 nav {
   display: flex;
   justify-content: space-between;
+  padding-top: 80px;
 }
 
 .darkBackGround {
@@ -38,6 +36,17 @@ nav {
   background-color: black;
 }
 
+.lightBackGround {
+  background-image: url("./assets/images/bg-desktop-light.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: white;
+}
+
 h1 {
   margin: 0;
+  color: white;
+  
 }
+
+/*--checkBackground: linear-gradient hsl(192, 100%, 67%) to hsl(280, 87%, 65%);*/
