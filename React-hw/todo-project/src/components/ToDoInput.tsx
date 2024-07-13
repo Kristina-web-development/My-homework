@@ -1,14 +1,18 @@
 import React, { useState, ChangeEvent, KeyboardEvent, FC } from "react";
 import "./ToDoInput.css";
-import iconcrossgray from "../assets/images/iconcrossgray.png"
+import iconcrossgray from "../assets/images/iconcrossgray.png";
 
-interface Task {
+interface ITask {
   text: string;
   completed: boolean;
 }
 
-const ToDoInput: FC<Task> = () => {
-  const [tasks, setTasks] = useState<Array<Task>>([]);
+interface ITodoInput {
+  theme: string;
+}
+
+const ToDoInput: FC<ITodoInput> = ({ theme }) => {
+  const [tasks, setTasks] = useState<Array<ITask>>([]);
   const [newTask, setNewTask] = useState<string>("");
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -55,7 +59,7 @@ const ToDoInput: FC<Task> = () => {
         value={newTask}
         onChange={handleInputChange}
         onKeyPress={handleKeyPress}
-        id="input"
+        id={theme === "dark" ? "inputdark" : "inputlight"}
         placeholder="Add a new task"
       />
       <ul>
@@ -63,7 +67,11 @@ const ToDoInput: FC<Task> = () => {
           <li key={index}><input type="checkbox" id="checkbox" />{task}</li>
         ))} */}
         {tasks.map((task, index) => (
-          <li key={index} className={task.completed ? "completed" : ""}>
+          <li
+            id={theme === "dark" ? "inputdark" : "inputlight"}
+            key={index}
+            className={task.completed ? "completed" : ""}
+          >
             <label className="custom-checkbox">
               <input
                 type="checkbox"
@@ -73,7 +81,12 @@ const ToDoInput: FC<Task> = () => {
               <span className="checkmark"></span>
               {task.text}
             </label>
-            <button onClick={() => handleDeleteTask(index)}><img className="icon-button" src={iconcrossgray} /></button>
+            <button
+              className="button-input"
+              onClick={() => handleDeleteTask(index)}
+            >
+              <img className="icon-button" src={iconcrossgray} />
+            </button>
           </li>
         ))}
       </ul>
