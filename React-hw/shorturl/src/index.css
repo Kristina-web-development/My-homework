@@ -1,0 +1,8 @@
+:root {
+  --mobile: 375px;
+  --desktop: 1440px;
+
+  --primeryCyan: hsl(180, 66%, 49%);
+  --primeryDarkViolet: hsl(257, 27%, 26%);
+}
+
