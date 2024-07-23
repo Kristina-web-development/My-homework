@@ -1,0 +1,11 @@
+.nav__bar {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.nav__bar_left {
+    display: flex;
+    flex-direction: row;
+    gap: 20px
+}
