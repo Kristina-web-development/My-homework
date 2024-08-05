@@ -17,8 +17,8 @@ const FlagCard: FC<IFlagCard> = ({
   countryCapital,
 }) => {
   return (
-    //<section className="gallery">
-    <Link to={`country/${countryName}`}>
+   /* <section className="gallery">*/
+    <Link to={`country/${countryName}`} className="no-underline">
       <div className="gallery__container">
         <div className="gallery__card">
           <img
@@ -29,13 +29,15 @@ const FlagCard: FC<IFlagCard> = ({
             height={160}
           />
           <h3 className="gallery__card-name">{countryName}</h3>
-          <p className="gallery__card-population">{countryPopulation}</p>
-          <p className="gallery__card-region">{countryRegion}</p>
-          <p className="gallery__card-capital">{countryCapital}</p>
+          <div className='gallery__card_description'>
+          <p>Population:<span>{countryPopulation}</span></p>
+          <p>Region:<span>{countryRegion}</span></p>
+          <p>Capital:<span>{countryCapital}</span></p>
+          </div>
         </div>
       </div>
     </Link>
-    //</section>
+    /*</section>*/
   );
 };
 
