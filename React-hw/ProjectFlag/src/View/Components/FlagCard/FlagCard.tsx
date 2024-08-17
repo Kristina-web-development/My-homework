@@ -1,12 +1,15 @@
 import React, { FC } from "react";
 import "./FlagCard.css";
 import {Link} from "react-router-dom";
+
+
 interface IFlagCard {
   imgCountryFlag: string;
   countryName: string;
   countryPopulation: number;
   countryRegion: string;
   countryCapital: string;
+  theme: string;
 }
 
 const FlagCard: FC<IFlagCard> = ({
@@ -15,12 +18,13 @@ const FlagCard: FC<IFlagCard> = ({
   countryPopulation,
   countryRegion,
   countryCapital,
+  theme
 }) => {
   return (
    /* <section className="gallery">*/
     <Link to={`country/${countryName}`} className="no-underline">
-      <div className="gallery__container">
-        <div className="gallery__card">
+      <div className={`gallery__container ${theme == "dark" ? "dark-theme" : "light-theme"}`}>
+        <div className="gallery__card" >
           <img
             className="gallery__card-image"
             src={imgCountryFlag}

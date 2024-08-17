@@ -34,6 +34,7 @@ const MainPage: FC<IMainPage> = ({ theme }) => {
               countryPopulation={fl.population}
               countryRegion={fl.region}
               countryCapital={fl.capital}
+              theme={fl.theme}
             />
           ))}
         </section>
