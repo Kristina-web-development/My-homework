@@ -11,16 +11,15 @@ const NavBar: FC<INavBar> = ({ setTheme, theme }) => {
   return (
     <nav className={theme == "dark" ? "darkthemeNavBar" : "lightthemeNavBar"}>
       <div>
-        <p className={theme == "dark" ? "lightText" : "darkText "} width={233} height={33}>Where in the world?</p>
+        <p id='navp' className={theme == "dark" ? "lightText" : "darkText "} width={233} height={33}>Where in the world?</p>
         <div className="header__theme">
-          <button
-            className="header__text"
+          <button id='navbutton'
             onClick={() => setTheme(theme == "dark" ? "light" : "dark")}
           >
-            <div className="header__moon_white">
-              <img src={Path} alt="moon" width={18} height={17} />
-            </div>
-            Dark Mode
+            {/* <div className="nav__moon_white"> */}
+              <img id='navimg' src={Path} alt="moon" width={18} height={17} />
+            {/* </div> */}
+           <p id="navbutp" className={theme == "dark" ? "lightText" : "darkText "}> Dark Mode</p>
           </button>
         </div>
       </div>

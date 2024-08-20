@@ -1,5 +1,7 @@
 import React, { FC } from "react";
-
+import "./Header.css";
+import callmade from "../../assets/images/callmade.svg";
+import search from "../../../assets/images/search.svg";
 interface IHeader {
   dataFlag: any;
   setFlags: Function;
@@ -36,24 +38,27 @@ const Header: FC<IHeader> = ({ dataFlag, setFlags, theme }) => {
         theme == "dark" ? "darkthemeBackGround" : "lightthemeBackGround"
       }
     >
-      <div>
-        <div>
+      <div className="header__container">
+        <div className="header__input">
+        <img className="header__image" src={search} alt="arrowback" width={18} height={18} />
           <input
             className="header__search"
             onChange={hendleSearch}
-            placeholder="Search Country"
+            placeholder="Search for a country..."
           />
         </div>
-        <div>
-          <select onChange={handleSelectChange}> {/* Сделать display:flex + Сделать стили инпут и селект как в фигме*/}
-            <option value="selectCountry">Select Region</option>
+     
+          <select className="header__select" onChange={handleSelectChange}>
+            {" "}
+            {/* Сделать display:flex + Сделать стили инпут и селект как в фигме*/}
+            <option value="selectCountry">Filter by Region</option>
             {regions.map((region, index) => (
-              <option key={index} value={region}>
+              <option id="countryOption" key={index} value={region}>
                 {region}
               </option>
             ))}
           </select>
-        </div>
+      
       </div>
     </header>
   );

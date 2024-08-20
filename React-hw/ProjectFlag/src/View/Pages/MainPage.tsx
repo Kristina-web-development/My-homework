@@ -39,7 +39,7 @@ const MainPage: FC<IMainPage> = ({ theme }) => {
           ))}
         </section>
       
-        <button className={theme == "dark" ? "lightthemeButton" : "darkthemeButton"} onClick={() => setCountOfFlags(countOfFlags + 8)}>
+        <button id="mainbutton" className={theme == "dark" ? "darkthemeButton" : "lightthemeButton" } onClick={() => setCountOfFlags(countOfFlags + 8)}>
           Show more
         </button>
       </main>
