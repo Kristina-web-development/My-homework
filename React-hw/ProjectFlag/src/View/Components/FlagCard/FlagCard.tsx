@@ -20,11 +20,12 @@ const FlagCard: FC<IFlagCard> = ({
   countryCapital,
   theme
 }) => {
+console.log(theme)
   return (
    /* <section className="gallery">*/
     <Link to={`country/${countryName}`} className="no-underline">
-      <div className={`gallery__container ${theme == "dark" ? "dark-theme" : "light-theme"}`}>
-        <div className="gallery__card" >
+      <div className={`gallery__container `}>
+        <div className={`gallery__card  ${theme == "dark" ? "dark-theme" : "light-theme"}` }>
           <img
             className="gallery__card-image"
             src={imgCountryFlag}
