@@ -47,9 +47,7 @@ const Header: FC<IHeader> = ({ dataFlag, setFlags, theme }) => {
             placeholder="Search for a country..."
           />
         </div>
-     
-          <label htmlFor="selectCountry123">sdfsdf</label>
-          <select id="selectCountry123" className="header__select" onChange={handleSelectChange}>
+          <select className="header__select" onChange={handleSelectChange}>
             {" "}
             {/* Сделать display:flex + Сделать стили инпут и селект как в фигме*/}
             <option value="selectCountry">Filter by Region</option>
